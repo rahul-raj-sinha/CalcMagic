@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Documentation</title>
+    <style>
+        /* Reset some default styles */
+        body, h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Table Styles */
+        table {
+            width: 80%; /* Adjust the width for better spacing */
+            border: 3px solid black; /* Use a lighter border color */
+            border-collapse: collapse;
+            margin: 20px auto; /* Center the table */
+            background-color: white; /* Set a white background color */
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 10px; /* Increase padding for better spacing */
+            text-align: left;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #fea2a2; /* Add a background color to header cells */
+        }
+
+        /* Add hover effect to table rows */
+        tr:hover {
+            background-color: #d8d0d0; /* Slightly lighter background on hover */
+        }
+
+        /* Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <br></br>
+    <br></br>
+    <h1>API Endpoint Documentation</h1>
+    <table>
+        <tr>
+            <th>Endpoint Name</th>
+            <th>GET Request</th>
+            <th>Response Type</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Root Endpoint</td>
+            <td>/</td>
+            <td>HTML</td>
+            <td>List all available GET endpoints.</td>
+        </tr>
+        <tr>
+            <td>History Endpoint</td>
+            <td>/history</td>
+            <td>HTML</td>
+            <td>List the last 20 server operations and their responses.</td>
+        </tr>
+        <!-- Loop through endpoint data -->
+        {% for i in range(apiEndpoints|length) %}
+        <tr>
+            <td>Example {{i+1}}</td>
+            <td>{{apiEndpoints[i]}}</td>
+            <td>JSON</td>
+            <td>{{responseTypes[i]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
